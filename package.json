@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/navoddilshan9/blogpost-backend/issues"
   },
-  "homepage": "https://github.com/navoddilshan9/blogpost-backend#readme"
+  "homepage": "https://github.com/navoddilshan9/blogpost-backend#readme",
+  "dependencies": {
+    "mongodb": "^4.11.0"
+  }
 }
