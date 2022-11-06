@@ -138,7 +138,7 @@ module.exports.update = async (event) => {
 
 module.exports.delete = async (event) => {
   await connectDB()
-  console.log(event.pathParameters)
+  console.log(event)
   let body = {
     statusCode: 400,
     body: JSON.stringify(
@@ -149,7 +149,7 @@ module.exports.delete = async (event) => {
       2
     ),
   }
-  await Post.findByIdAndRemove(event.pathParameters.blogid)
+  await Post.findByIdAndRemove(event.blogid)
     .then((user) => {
       body = {
         statusCode: 200,
