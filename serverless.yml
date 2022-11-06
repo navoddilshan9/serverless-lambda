@@ -1,4 +1,4 @@
-service: blog-post-backend
+service: blog-post
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -16,3 +16,5 @@ provider:
 functions:
   hello:
     handler: src/handler.hello
+    timeout: 60
+    memorySize: 128
