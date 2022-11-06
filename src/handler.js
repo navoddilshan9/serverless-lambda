@@ -106,35 +106,32 @@ module.exports.update = async (event) => {
       2
     ),
   }
-  // await Post.findOneAndUpdate(
-  //   { _id: event.queryStringParameters.blogId },
-  //   event.body
-  // )
-  //   .then((blog) => {
-  //     body = {
-  //       statusCode: 200,
-  //       body: JSON.stringify(
-  //         {
-  //           message: blog,
-  //         },
-  //         null,
-  //         2
-  //       ),
-  //     }
-  //   })
-  //   .catch((err) => {
-  //     body = {
-  //       statusCode: 400,
-  //       body: JSON.stringify(
-  //         {
-  //           message: 'Blog cannot updated!',
-  //           error: err,
-  //         },
-  //         null,
-  //         2
-  //       ),
-  //     }
-  //   })
+  await Post.findOneAndUpdate({ _id: event.blogId }, event)
+    .then((blog) => {
+      body = {
+        statusCode: 200,
+        body: JSON.stringify(
+          {
+            message: blog,
+          },
+          null,
+          2
+        ),
+      }
+    })
+    .catch((err) => {
+      body = {
+        statusCode: 400,
+        body: JSON.stringify(
+          {
+            message: 'Blog cannot updated!',
+            error: err,
+          },
+          null,
+          2
+        ),
+      }
+    })
 
   return body
 }
