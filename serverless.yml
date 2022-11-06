@@ -20,6 +20,6 @@ functions:
     timeout: 60
     memorySize: 128
   createBlog:
-    handler: src/handler.createBlog
+    handler: src/handler.create
     timeout: 60
     memorySize: 128
