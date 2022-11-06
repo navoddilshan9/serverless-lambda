@@ -190,7 +190,7 @@ module.exports.findById = async (event) => {
       2
     ),
   }
-  await Post.findById(event.blogid)
+  await Post.findById(event._id)
     .then((blog) => {
       body = {
         statusCode: 200,
