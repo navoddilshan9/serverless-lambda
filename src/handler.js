@@ -92,10 +92,10 @@ module.exports.create = async (event) => {
 }
 
 module.exports.update = async (event) => {
-  await connectDB()
   console.log('body')
   console.log(event)
-  console.log(event.pathParameters.blogId)
+  // console.log(event.pathParameters.blogId)
+  await connectDB()
   let body = {
     statusCode: 400,
     body: JSON.stringify(
