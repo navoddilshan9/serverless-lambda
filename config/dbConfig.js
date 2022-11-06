@@ -13,7 +13,7 @@ const connectToDatabase = async () => {
       useNewUrlParser: true,
     })
       .then((client) => {
-        let db = client.db('BlogPost')
+        let db = client.db('blog_post')
         console.log('New databse Connection')
         cachedDb = db
         return cachedDb
