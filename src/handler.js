@@ -90,3 +90,50 @@ module.exports.create = async (event) => {
 
   return body
 }
+
+module.exports.s = async (event) => {
+  await connectDB()
+  console.log('body')
+  console.log(event)
+  let body = {
+    statusCode: 400,
+    body: JSON.stringify(
+      {
+        message: 'Blog cannot update',
+      },
+      null,
+      2
+    ),
+  }
+  await Post.findOneAndUpdate(
+    { _id: event.pathParameters.subscriptionId },
+    event.body
+  )
+    .then((blog) => {
+      body = {
+        statusCode: 200,
+        body: JSON.stringify(
+          {
+            message: blog,
+          },
+          null,
+          2
+        ),
+      }
+    })
+    .catch((err) => {
+      body = {
+        statusCode: 400,
+        body: JSON.stringify(
+          {
+            message: 'Blog cannot updated!',
+            error: err,
+          },
+          null,
+          2
+        ),
+      }
+    })
+
+  return body
+}
