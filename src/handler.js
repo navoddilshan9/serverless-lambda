@@ -105,10 +105,7 @@ module.exports.update = async (event) => {
       2
     ),
   }
-  await Post.findOneAndUpdate(
-    { _id: event.pathParameters.subscriptionId },
-    event.body
-  )
+  await Post.findOneAndUpdate({ _id: event.pathParameters.blogId }, event.body)
     .then((blog) => {
       body = {
         statusCode: 200,
