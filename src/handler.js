@@ -2,26 +2,13 @@
 var connectDB = require('../config/dbConfig')
 var Post = require('./collections/post')
 
-// module.exports.hello = async (event) => {
-//   return {
-//     statusCode: 200,
-//     body: JSON.stringify(
-//       {
-//         message: 'Go Serverless v1.0! Your function executed successfully!',
-//       },
-//       null,
-//       2
-//     ),
-//   }
-// }
-
-module.exports.hello = async (event) => {
+module.exports.getAll = async (event) => {
   await connectDB()
   let body = {
-    statusCode: 401,
+    statusCode: 400,
     body: JSON.stringify(
       {
-        message: 'Store cannot find!',
+        message: 'Blogs cannot find',
       },
       null,
       2
@@ -42,10 +29,10 @@ module.exports.hello = async (event) => {
     })
     .catch((err) => {
       body = {
-        statusCode: 402,
+        statusCode: 400,
         body: JSON.stringify(
           {
-            message: 'Store cannot find!',
+            message: 'Blogs cannot find!',
             error: err,
           },
           null,
@@ -53,10 +40,51 @@ module.exports.hello = async (event) => {
         ),
       }
     })
-  console.log('All Done store')
 
   return body
+}
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
+module.exports.createBlog = async (event) => {
+  await connectDB()
+  let body = {
+    statusCode: 400,
+    body: JSON.stringify(
+      {
+        message: 'Blog cannot create',
+      },
+      null,
+      2
+    ),
+  }
+  const post = new Post(event.body)
+
+  await post
+    .save()
+    .then((post) => {
+      body = {
+        statusCode: 200,
+        body: JSON.stringify(
+          {
+            message: post,
+          },
+          null,
+          2
+        ),
+      }
+    })
+    .catch((err) => {
+      body = {
+        statusCode: 400,
+        body: JSON.stringify(
+          {
+            message: 'Blog cannot created!',
+            error: err,
+          },
+          null,
+          2
+        ),
+      }
+    })
+
+  return body
 }

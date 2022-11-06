@@ -14,7 +14,12 @@ provider:
   region: us-east-1
 
 functions:
-  hello:
-    handler: src/handler.hello
+  # blogs functions
+  getAllBlogs:
+    handler: src/handler.getAll
+    timeout: 60
+    memorySize: 128
+  createBlog:
+    handler: src/handler.createBlog
     timeout: 60
     memorySize: 128
