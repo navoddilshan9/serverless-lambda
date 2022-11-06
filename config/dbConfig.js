@@ -2,7 +2,7 @@ const MongoClient = require('mongodb').MongoClient
 
 let cachedDb = null
 
-export const connectToDatabase = async () => {
+const connectToDatabase = async () => {
   if (cachedDb) {
     console.log('user existinbg connection')
     return Promise.resolve(cachedDb)
@@ -24,3 +24,4 @@ export const connectToDatabase = async () => {
       })
   }
 }
+module.exports = connectToDatabase
