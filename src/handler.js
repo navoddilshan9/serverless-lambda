@@ -93,7 +93,7 @@ module.exports.create = async (event) => {
 
 module.exports.update = async (event) => {
   console.log('body')
-  console.log(event)
+  console.log(event.body)
   console.log(event.queryStringParameters)
   await connectDB()
   let body = {
@@ -106,7 +106,10 @@ module.exports.update = async (event) => {
       2
     ),
   }
-  // await Post.findOneAndUpdate({ _id: event.pathParameters.blogId }, event.body)
+  // await Post.findOneAndUpdate(
+  //   { _id: event.queryStringParameters.blogId },
+  //   event.body
+  // )
   //   .then((blog) => {
   //     body = {
   //       statusCode: 200,
