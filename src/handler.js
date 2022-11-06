@@ -3,7 +3,7 @@ import { connectToDatabase } from '../config/dbConfig'
 
 module.exports.hello = async (event) => {
   const dbConnection = connectToDatabase()
-  const posts = await getPost(dbConnection, 'posts')
+  const posts = await getAllPost(dbConnection, 'posts')
   return {
     statusCode: 200,
     body: JSON.stringify(posts),
