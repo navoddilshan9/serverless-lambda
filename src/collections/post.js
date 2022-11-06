@@ -9,4 +9,4 @@ const post = new mongoose.Schema({
   },
 })
 
-module.exports = User = mongoose.model('posts', post)
+module.exports = Post = mongoose.model('posts', post)
