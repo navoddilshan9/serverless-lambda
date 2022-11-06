@@ -12,6 +12,7 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: us-east-1
+  on_failure: ROLLBACK #configures for all stacks in this config file
 
 # you can add statements to the Lambda function's IAM Role here
 #  iam:
