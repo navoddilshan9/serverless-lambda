@@ -138,7 +138,7 @@ module.exports.update = async (event) => {
 
 module.exports.delete = async (event) => {
   await connectDB()
-  console.log(event)
+  console.log(event.pathParameters)
   let body = {
     statusCode: 400,
     body: JSON.stringify(
@@ -149,33 +149,33 @@ module.exports.delete = async (event) => {
       2
     ),
   }
-  // await Post.findByIdAndRemove(event.pathParameters.userId)
-  //   .then((user) => {
-  //     body = {
-  //       statusCode: 200,
-  //       body: JSON.stringify(
-  //         {
-  //           message: user,
-  //         },
-  //         null,
-  //         2
-  //       ),
-  //     };
-  //   })
-  //   .catch((err) => {
-  //     body = {
-  //       statusCode: 400,
-  //       body: JSON.stringify(
-  //         {
-  //           message: "User cannot deleted!",
-  //           error: err,
-  //         },
-  //         null,
-  //         2
-  //       ),
-  //     };
-  //   });
-  // console.log("All Done user");
+  await Post.findByIdAndRemove(event.pathParameters.blogid)
+    .then((user) => {
+      body = {
+        statusCode: 200,
+        body: JSON.stringify(
+          {
+            message: user,
+          },
+          null,
+          2
+        ),
+      }
+    })
+    .catch((err) => {
+      body = {
+        statusCode: 400,
+        body: JSON.stringify(
+          {
+            message: 'User cannot deleted!',
+            error: err,
+          },
+          null,
+          2
+        ),
+      }
+    })
+  console.log('All Done user')
 
   return body
 }
