@@ -1,5 +1,5 @@
 ;('use strict')
-var connectDB = require('../config/dbConfig')
+var connectToDatabase = require('../config/dbConfig')
 var Post = require('./collections/post')
 
 // module.exports.hello = async (event) => {
@@ -16,9 +16,9 @@ var Post = require('./collections/post')
 // }
 
 module.exports.hello = async (event) => {
-  await connectDB()
+  await connectToDatabase()
   let body = {
-    statusCode: 400,
+    statusCode: 401,
     body: JSON.stringify(
       {
         message: 'Store cannot find!',
@@ -42,7 +42,7 @@ module.exports.hello = async (event) => {
     })
     .catch((err) => {
       body = {
-        statusCode: 400,
+        statusCode: 402,
         body: JSON.stringify(
           {
             message: 'Store cannot find!',
