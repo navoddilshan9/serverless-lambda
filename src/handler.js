@@ -143,19 +143,19 @@ module.exports.delete = async (event) => {
     statusCode: 400,
     body: JSON.stringify(
       {
-        message: 'User cannot deleted!',
+        message: 'Blog cannot deleted!',
       },
       null,
       2
     ),
   }
   await Post.findByIdAndRemove(event.blogid)
-    .then((user) => {
+    .then((blog) => {
       body = {
         statusCode: 200,
         body: JSON.stringify(
           {
-            message: user,
+            message: blog,
           },
           null,
           2
@@ -167,7 +167,7 @@ module.exports.delete = async (event) => {
         statusCode: 400,
         body: JSON.stringify(
           {
-            message: 'User cannot deleted!',
+            message: 'Blog cannot deleted!',
             error: err,
           },
           null,
@@ -175,7 +175,6 @@ module.exports.delete = async (event) => {
         ),
       }
     })
-  console.log('All Done user')
 
   return body
 }
