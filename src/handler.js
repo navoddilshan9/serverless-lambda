@@ -178,3 +178,44 @@ module.exports.delete = async (event) => {
 
   return body
 }
+
+module.exports.findById = async (event) => {
+  let body = {
+    statusCode: 400,
+    body: JSON.stringify(
+      {
+        message: 'Error in Request!',
+      },
+      null,
+      2
+    ),
+  }
+  await Post.findById(event.blogid)
+    .then((blog) => {
+      body = {
+        statusCode: 200,
+        body: JSON.stringify(
+          {
+            message: blog,
+          },
+          null,
+          2
+        ),
+      }
+    })
+    .catch((err) => {
+      body = {
+        statusCode: 400,
+        body: JSON.stringify(
+          {
+            message: 'Blog cannot find!',
+            error: err,
+          },
+          null,
+          2
+        ),
+      }
+    })
+
+  return body
+}

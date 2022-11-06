@@ -47,3 +47,12 @@ functions:
       - httpApi:
           path: /blogs/delete
           method: delete
+
+  getBlogById:
+    handler: src/handler.findById
+    timeout: 60
+    memorySize: 128
+    events:
+      - httpApi:
+          path: /blogs/findById
+          method: get
