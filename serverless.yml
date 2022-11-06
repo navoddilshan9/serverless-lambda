@@ -26,13 +26,14 @@ functions:
     memorySize: 128
     events:
       - httpApi:
-          path: /blogs
+          path: /blogs/create
           method: post
+
   updateeBlog:
     handler: src/handler.update
     timeout: 60
     memorySize: 128
     events:
       - httpApi:
-          path: /blogs/{blogId}
+          path: /blogs/update/{blogId}
           method: put
