@@ -44,7 +44,7 @@ module.exports.getAll = async (event) => {
   return body
 }
 
-module.exports.createBlog = async (event) => {
+module.exports.create = async (event) => {
   await connectDB()
   event.body = JSON.parse(event.body)
   let body = {
