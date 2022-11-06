@@ -16,7 +16,7 @@ var Post = require('./collections/post')
 // }
 
 module.exports.hello = async (event) => {
-  // await connectDB()
+  await connectDB()
 
   await Post.find()
     .then((post) => {
