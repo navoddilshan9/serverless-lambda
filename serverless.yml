@@ -45,5 +45,5 @@ functions:
     memorySize: 128
     events:
       - httpApi:
-          path: /blogs/delete/{blogId}
+          path: /blogs/delete
           method: delete
