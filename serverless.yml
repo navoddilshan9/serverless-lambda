@@ -19,7 +19,12 @@ functions:
     handler: src/handler.getAll
     timeout: 60
     memorySize: 128
+
   createBlog:
     handler: src/handler.create
     timeout: 60
     memorySize: 128
+    events:
+      - httpApi:
+          path: /blogs
+          method: post
