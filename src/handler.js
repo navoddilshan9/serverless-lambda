@@ -94,7 +94,7 @@ module.exports.create = async (event) => {
 module.exports.update = async (event) => {
   console.log('body')
   console.log(event)
-  // console.log(event.pathParameters.blogId)
+  console.log(event.queryStringParameters)
   await connectDB()
   let body = {
     statusCode: 400,
