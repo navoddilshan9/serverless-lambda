@@ -29,7 +29,7 @@ functions:
           path: /blogs/create
           method: post
 
-  updateeBlog:
+  updateBlog:
     handler: src/handler.update
     timeout: 60
     memorySize: 128
