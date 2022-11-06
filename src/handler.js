@@ -59,7 +59,7 @@ module.exports.create = async (event) => {
     ),
   }
 
-  const post = new Post(event.body)
+  const post = new Post(event)
   await post
     .save()
     .then((post) => {
