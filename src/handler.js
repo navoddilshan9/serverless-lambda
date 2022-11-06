@@ -124,7 +124,7 @@ module.exports.update = async (event) => {
         statusCode: 400,
         body: JSON.stringify(
           {
-            message: 'Blog cannot updated!',
+            message: 'Blog cannot update!',
             error: err,
           },
           null,
@@ -132,6 +132,50 @@ module.exports.update = async (event) => {
         ),
       }
     })
+
+  return body
+}
+
+module.exports.delete = async (event) => {
+  await connectDB()
+  console.log(event)
+  let body = {
+    statusCode: 400,
+    body: JSON.stringify(
+      {
+        message: 'User cannot deleted!',
+      },
+      null,
+      2
+    ),
+  }
+  // await Post.findByIdAndRemove(event.pathParameters.userId)
+  //   .then((user) => {
+  //     body = {
+  //       statusCode: 200,
+  //       body: JSON.stringify(
+  //         {
+  //           message: user,
+  //         },
+  //         null,
+  //         2
+  //       ),
+  //     };
+  //   })
+  //   .catch((err) => {
+  //     body = {
+  //       statusCode: 400,
+  //       body: JSON.stringify(
+  //         {
+  //           message: "User cannot deleted!",
+  //           error: err,
+  //         },
+  //         null,
+  //         2
+  //       ),
+  //     };
+  //   });
+  // console.log("All Done user");
 
   return body
 }

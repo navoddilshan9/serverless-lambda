@@ -36,5 +36,14 @@ functions:
     memorySize: 128
     events:
       - httpApi:
-          path: /blogs/update/{blogId}
+          path: /blogs/update
           method: put
+
+  deleteBlog:
+    handler: src/handler.delete
+    timeout: 60
+    memorySize: 128
+    events:
+      - httpApi:
+          path: /blogs/delete/{blogId}
+          method: delete
