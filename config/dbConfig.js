@@ -9,7 +9,8 @@ export const connectToDatabase = async () => {
   } else {
     return MongoClient.connect(process.env.MONGODB_URI, {
       native_parser: true,
-      useUnifiedToplogy: true,
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
     })
       .then((client) => {
         let db = client.db('BlogPost')
