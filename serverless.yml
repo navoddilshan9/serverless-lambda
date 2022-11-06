@@ -49,10 +49,10 @@ functions:
           method: delete
 
   getBlogById:
-    handler: src/handler.findById
+    handler: src/handler.findbyid
     timeout: 60
     memorySize: 128
     events:
       - httpApi:
-          path: /blogs/findById
+          path: /blogs/findbyid
           method: get
