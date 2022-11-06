@@ -1,5 +1,5 @@
 ;('use strict')
-var connectToDatabase = require('../config/dbConfig')
+var connectDB = require('../config/dbConfig')
 var Post = require('./collections/post')
 
 // module.exports.hello = async (event) => {
@@ -16,7 +16,7 @@ var Post = require('./collections/post')
 // }
 
 module.exports.hello = async (event) => {
-  await connectToDatabase()
+  await connectDB()
   let body = {
     statusCode: 401,
     body: JSON.stringify(
