@@ -15,6 +15,7 @@ provider:
 
 functions:
   # blogs functions
+
   getAllBlogs:
     handler: src/handler.getAll
     timeout: 60

@@ -91,7 +91,7 @@ module.exports.create = async (event) => {
   return body
 }
 
-module.exports.s = async (event) => {
+module.exports.update = async (event) => {
   await connectDB()
   console.log('body')
   console.log(event)
