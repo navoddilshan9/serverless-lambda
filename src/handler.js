@@ -95,6 +95,7 @@ module.exports.update = async (event) => {
   await connectDB()
   console.log('body')
   console.log(event)
+  console.log(event.pathParameters.blogId)
   let body = {
     statusCode: 400,
     body: JSON.stringify(
@@ -105,32 +106,32 @@ module.exports.update = async (event) => {
       2
     ),
   }
-  await Post.findOneAndUpdate({ _id: event.pathParameters.blogId }, event.body)
-    .then((blog) => {
-      body = {
-        statusCode: 200,
-        body: JSON.stringify(
-          {
-            message: blog,
-          },
-          null,
-          2
-        ),
-      }
-    })
-    .catch((err) => {
-      body = {
-        statusCode: 400,
-        body: JSON.stringify(
-          {
-            message: 'Blog cannot updated!',
-            error: err,
-          },
-          null,
-          2
-        ),
-      }
-    })
+  // await Post.findOneAndUpdate({ _id: event.pathParameters.blogId }, event.body)
+  //   .then((blog) => {
+  //     body = {
+  //       statusCode: 200,
+  //       body: JSON.stringify(
+  //         {
+  //           message: blog,
+  //         },
+  //         null,
+  //         2
+  //       ),
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     body = {
+  //       statusCode: 400,
+  //       body: JSON.stringify(
+  //         {
+  //           message: 'Blog cannot updated!',
+  //           error: err,
+  //         },
+  //         null,
+  //         2
+  //       ),
+  //     }
+  //   })
 
   return body
 }
