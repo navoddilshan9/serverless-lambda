@@ -93,8 +93,8 @@ module.exports.create = async (event) => {
 
 module.exports.update = async (event) => {
   console.log('body')
-  console.log(event.body)
-  console.log(event.queryStringParameters)
+  console.log(event)
+
   await connectDB()
   let body = {
     statusCode: 400,
