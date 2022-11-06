@@ -47,7 +47,7 @@ module.exports.getAll = async (event) => {
 module.exports.create = async (event) => {
   await connectDB()
   console.log('body')
-  console.log(event)
+  console.log(JSON.parse(event.body))
   let body = {
     statusCode: 400,
     body: JSON.stringify(
