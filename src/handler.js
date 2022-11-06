@@ -21,7 +21,7 @@ module.exports.hello = async (event) => {
   const post = await Post.find()
   return {
     statusCode: 200,
-    body: JSON.stringify(post),
+    body: JSON.stringify(post, null, 2),
   }
 
   // Use this code if you don't use the http event with the LAMBDA-PROXY integration
