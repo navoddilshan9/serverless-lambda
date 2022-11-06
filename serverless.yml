@@ -55,4 +55,4 @@ functions:
     events:
       - httpApi:
           path: /blogs/findbyid
-          method: get
+          method: post
