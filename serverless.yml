@@ -23,7 +23,7 @@ functions:
   # blogs functions
 
   getAllBlogs:
-    handler: src/handlers/blogsHandlers/blogsHandler.getAll
+    handler: src/handlers/blogsHandler.getAll
     timeout: 60
     memorySize: 128
 
