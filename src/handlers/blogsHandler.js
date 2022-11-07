@@ -198,6 +198,7 @@ module.exports.findById = async (event) => {
   console.log(event._id)
   await Post.findById(event._id)
     .then((blog) => {
+      console.log(blog)
       body = {
         statusCode: 200,
         body: JSON.stringify(
