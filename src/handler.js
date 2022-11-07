@@ -219,3 +219,46 @@ module.exports.findById = async (event) => {
 
   return body
 }
+
+module.exports.findbyidWriter = async (event) => {
+  let body = {
+    statusCode: 400,
+    body: JSON.stringify(
+      {
+        message: 'Error in Request!',
+      },
+      null,
+      2
+    ),
+  }
+  await Post.find({
+    write: event._id,
+  })
+    .then((blogs) => {
+      body = {
+        statusCode: 200,
+        body: JSON.stringify(
+          {
+            message: blogs,
+          },
+          null,
+          2
+        ),
+      }
+    })
+    .catch((err) => {
+      body = {
+        statusCode: 400,
+        body: JSON.stringify(
+          {
+            message: 'Blogs cannot find!',
+            error: err,
+          },
+          null,
+          2
+        ),
+      }
+    })
+
+  return body
+}

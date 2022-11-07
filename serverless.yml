@@ -56,3 +56,12 @@ functions:
       - httpApi:
           path: /blogs/findbyid
           method: post
+
+  getBlogsByWriter:
+    handler: src/handler.findbyidWriter
+    timeout: 60
+    memorySize: 128
+    events:
+      - httpApi:
+          path: /blogs/findbyidWriter
+          method: post
