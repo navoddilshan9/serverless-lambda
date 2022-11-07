@@ -23,12 +23,12 @@ functions:
   # blogs functions
 
   getAllBlogs:
-    handler: src/handler.getAll
+    handler: src/handlers/blogsHandlers/blogsHandler.getAll
     timeout: 60
     memorySize: 128
 
   createBlog:
-    handler: src/handler.create
+    handler: src/handlers/blogsHandler.create
     timeout: 60
     memorySize: 128
     events:
@@ -37,7 +37,7 @@ functions:
           method: post
 
   updateBlog:
-    handler: src/handler.update
+    handler: src/handlers/blogsHandler.update
     timeout: 60
     memorySize: 128
     events:
@@ -46,7 +46,7 @@ functions:
           method: put
 
   deleteBlog:
-    handler: src/handler.delete
+    handler: src/handlers/blogsHandler.delete
     timeout: 60
     memorySize: 128
     events:
@@ -55,7 +55,7 @@ functions:
           method: delete
 
   getBlogById:
-    handler: src/handler.findbyid
+    handler: src/handlers/blogsHandler.findbyid
     timeout: 60
     memorySize: 128
     events:
@@ -64,7 +64,7 @@ functions:
           method: post
 
   getBlogsByWriter:
-    handler: src/handler.findbyidWriter
+    handler: src/handlers/blogsHandler.findbyidWriter
     timeout: 60
     memorySize: 128
     events:
@@ -73,7 +73,7 @@ functions:
           method: post
 
   s3FileUploader:
-    handler: src/handler.upload
+    handler: src/handlers/blogsHandler.upload
     name: s3-blog-image-uploader
     description: A lambda handler that uploads a file to an S3 bucket based on an API Gateway trigger.
     timeout: 60 # seconds

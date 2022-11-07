@@ -1,6 +1,6 @@
 ;('use strict')
-var connectDB = require('../config/dbConfig')
-var Post = require('./collections/post')
+var connectDB = require('../../config/dbConfig')
+var Post = require('../collections/post')
 
 const AWS = require('aws-sdk')
 const s3 = new AWS.S3()

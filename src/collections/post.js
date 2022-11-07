@@ -4,13 +4,13 @@ const post = new mongoose.Schema({
   title: {
     type: 'string',
   },
-  description: {
+  story: {
     type: 'string',
   },
-  // writer: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'users',
-  // },
+  writer: {
+    type: mongoose.Schema.Types.ObjectId,
+    // ref: 'users',
+  },
 })
 
 module.exports = Post = mongoose.model('posts', post)
