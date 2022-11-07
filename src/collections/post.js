@@ -7,6 +7,9 @@ const post = new mongoose.Schema({
   story: {
     type: 'string',
   },
+  image: {
+    type: 'string',
+  },
   writer: {
     type: mongoose.Schema.Types.ObjectId,
     // ref: 'users',
