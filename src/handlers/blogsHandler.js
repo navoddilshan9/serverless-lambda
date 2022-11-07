@@ -195,6 +195,7 @@ module.exports.findById = async (event) => {
       2
     ),
   }
+  console.log(event._id)
   await Post.findById(event._id)
     .then((blog) => {
       body = {
