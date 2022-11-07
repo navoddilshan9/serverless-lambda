@@ -10,6 +10,9 @@ const post = new mongoose.Schema({
   image: {
     type: 'string',
   },
+  // tags: {
+  //   type: 'string',
+  // },
   writer: {
     type: mongoose.Schema.Types.ObjectId,
     // ref: 'users',
