@@ -185,6 +185,7 @@ module.exports.delete = async (event) => {
 }
 
 module.exports.findById = async (event) => {
+  await connectDB()
   let body = {
     statusCode: 400,
     body: JSON.stringify(
@@ -229,6 +230,7 @@ module.exports.findById = async (event) => {
 }
 
 module.exports.findByIdWriter = async (event) => {
+  await connectDB()
   let body = {
     statusCode: 400,
     body: JSON.stringify(
@@ -273,7 +275,7 @@ module.exports.findByIdWriter = async (event) => {
 
 module.exports.upload = async (event) => {
   console.log(event)
-
+  await connectDB()
   const response = {
     isBase64Encoded: false,
     statusCode: 200,
