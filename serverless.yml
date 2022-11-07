@@ -64,12 +64,12 @@ functions:
           method: post
 
   getBlogsByWriter:
-    handler: src/handlers/blogsHandler.findbyidWriter
+    handler: src/handlers/blogsHandler.findByIdWriter
     timeout: 60
     memorySize: 128
     events:
       - httpApi:
-          path: /blogs/findbyidWriter
+          path: /blogs/findByIdWriter
           method: post
 
   s3FileUploader:

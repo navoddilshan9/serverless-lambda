@@ -228,7 +228,7 @@ module.exports.findById = async (event) => {
   return body
 }
 
-module.exports.findbyidWriter = async (event) => {
+module.exports.findByIdWriter = async (event) => {
   let body = {
     statusCode: 400,
     body: JSON.stringify(
