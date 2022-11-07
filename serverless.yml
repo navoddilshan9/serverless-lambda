@@ -60,7 +60,7 @@ functions:
     memorySize: 128
     events:
       - httpApi:
-          path: /blogs/findbyid
+          path: /blogs/findById
           method: post
 
   getBlogsByWriter:
