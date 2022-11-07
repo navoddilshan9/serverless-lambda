@@ -23,13 +23,9 @@ module.exports.getAll = async (event) => {
     .then((post) => {
       body = {
         statusCode: 200,
-        body: JSON.stringify(
-          {
-            message: post,
-          },
-          null,
-          2
-        ),
+        body: {
+          message: post,
+        },
       }
     })
     .catch((err) => {
