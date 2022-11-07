@@ -7,6 +7,10 @@ const post = new mongoose.Schema({
   description: {
     type: 'string',
   },
+  // writer: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'users',
+  // },
 })
 
 module.exports = Post = mongoose.model('posts', post)
