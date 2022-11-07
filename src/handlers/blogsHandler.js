@@ -211,6 +211,7 @@ module.exports.findById = async (event) => {
       }
     })
     .catch((err) => {
+      console.log(err)
       body = {
         statusCode: 400,
         body: JSON.stringify(
@@ -239,7 +240,7 @@ module.exports.findbyidWriter = async (event) => {
     ),
   }
   await Post.find({
-    write: event._id,
+    writer: event._id,
   })
     .then((blogs) => {
       body = {
