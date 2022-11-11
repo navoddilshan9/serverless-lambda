@@ -71,29 +71,3 @@ functions:
       - httpApi:
           path: /blogs/findByIdWriter
           method: post
-
-  s3FileUploader:
-    handler: src/handlers/blogsHandler.upload
-    name: s3-blog-image-uploader
-    description: A lambda handler that uploads a file to an S3 bucket based on an API Gateway trigger.
-    timeout: 60 # seconds
-    memorySize: 128 # mb
-    events:
-      - http:
-          path: /blogs/image
-          method: POST
-    iamRoleStatements:
-      - Effect: Allow
-        Action:
-          - 's3:Put*'
-        Resource: arn:aws:s3:::${self:custom.fileUploadBucketName}/*
-    environment:
-      FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileUploadBucketName}
-
-resources:
-  Resources:
-    FileBucket:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: ${self:custom.fileUploadBucketName}
-        AccessControl: PublicRead
