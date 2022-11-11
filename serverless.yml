@@ -71,3 +71,12 @@ functions:
       - httpApi:
           path: /blogs/findByIdWriter
           method: post
+
+  createUser:
+    handler: src/handlers/userHandler.create
+    timeout: 60
+    memorySize: 128
+    events:
+      - httpApi:
+          path: /users/create
+          method: post
