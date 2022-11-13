@@ -45,5 +45,4 @@ module.exports.create = async (event, context, callback) => {
       }
     })
   callback(null, event)
-  return body
 }
