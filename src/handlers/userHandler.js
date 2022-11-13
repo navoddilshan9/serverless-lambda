@@ -16,6 +16,6 @@ module.exports.create = async (event, context, callback) => {
       2
     ),
   }
-
-  return body
+  callback(null, event)
+  return event
 }
