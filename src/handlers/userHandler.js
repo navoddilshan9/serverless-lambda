@@ -12,9 +12,10 @@ module.exports.create = async (event, context, callback) => {
 
 const saveUser = async (userAttributes) => {
   const values = Object.values(userAttributes)
-
+  console.log('values')
+  console.log(values)
   await User.findById({
-    email: values[2],
+    email: userAttributes['email'],
   })
     .then(async (currentUser) => {
       console.log('currentUser')
@@ -23,9 +24,9 @@ const saveUser = async (userAttributes) => {
         console.log('User existing')
       } else {
         const user = new User({
-          firstName: values[0],
-          lastName: values[1],
-          email: values[2],
+          firstName: userAttributes['custom:firstName'],
+          lastName: userAttributes['custom:lastName'],
+          email: userAttributes['email'],
         })
         await user
           .save()
