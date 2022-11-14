@@ -6,7 +6,7 @@ module.exports.create = (event, context, callback) => {
   saveUser(event.request.userAttributes)
 }
 
-const saveUser = async (userAttributes, event) => {
+const saveUser = async (userAttributes, event, callback) => {
   await connectDB()
   await User.find({
     email: userAttributes.email,
