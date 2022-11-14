@@ -154,7 +154,7 @@ module.exports.delete = async (event) => {
       2
     ),
   }
-  await Post.findByIdAndRemove(event.blogid)
+  await Post.findByIdAndRemove(event._id)
     .then((blog) => {
       body = {
         statusCode: 200,
