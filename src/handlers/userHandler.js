@@ -2,11 +2,8 @@
 var connectDB = require('../../config/dbConfig')
 var User = require('../collections/user')
 
-module.exports.create = (event, context, callback) => {
-  saveUser(event.request.userAttributes)
-}
-
-const saveUser = async (userAttributes, event, callback) => {
+module.exports.create = async (event, context, callback) => {
+  let userAttributes = event.request.userAttributes
   await connectDB()
   await User.find({
     email: userAttributes.email,
