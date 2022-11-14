@@ -17,23 +17,23 @@ const saveUser = async (userAttributes) => {
   })
     .then(async (currentUser) => {
       console.log('currentUser')
-      console.log(currentUser)
-      console.log(currentUser == [])
-      console.log(currentUser === [])
-      console.log(currentUser == null)
+      // console.log(currentUser)
+      // console.log(currentUser == [])
+      // console.log(currentUser === [])
+      // console.log(currentUser == null)
       console.log(currentUser.length)
-      // if (currentUser?.length != 0) {
-      //   const user = new User({
-      //     firstName: userAttributes['custom:firstName'],
-      //     lastName: userAttributes['custom:lastName'],
-      //     email: userAttributes.email,
-      //   })
-      //   user.save().then((nuser) => {
-      //     console.log(nuser)
-      //   })
-      // } else {
-      //   console.log('user existing')
-      // }
+      if (currentUser.length != 0) {
+        const user = new User({
+          firstName: userAttributes['custom:firstName'],
+          lastName: userAttributes['custom:lastName'],
+          email: userAttributes.email,
+        })
+        user.save().then((nuser) => {
+          console.log(nuser)
+        })
+      } else {
+        console.log('user existing')
+      }
     })
     .catch((err) => {
       console.log(err)
