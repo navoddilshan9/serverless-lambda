@@ -28,6 +28,8 @@ const saveUser = async (userAttributes) => {
         user.save().then((nuser) => {
           console.log(nuser)
         })
+      } else {
+        console.log('user existing')
       }
     })
     .catch((err) => {
