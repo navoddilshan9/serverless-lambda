@@ -18,7 +18,7 @@ const saveUser = async (userAttributes) => {
     .then(async (currentUser) => {
       console.log('currentUser')
       console.log(currentUser)
-      console.log(currentUser?.length)
+      console.log(currentUser == [])
       // if (currentUser?.length != 0) {
       //   const user = new User({
       //     firstName: userAttributes['custom:firstName'],
