@@ -2,12 +2,7 @@
 var connectDB = require('../../config/dbConfig')
 var User = require('../collections/user')
 
-module.exports.create = (event, context, callback) => {
-  saveUser(event.request.userAttributes)
-  callback(null, event)
-}
-
-const saveUser = async (userAttributes) => {
+module.exports.create = async (event, context, callback) => {
   await connectDB()
   await User.find({
     email: userAttributes.email,
@@ -21,12 +16,17 @@ const saveUser = async (userAttributes) => {
         })
         user.save().then((nuser) => {
           console.log(nuser)
+          callback(null, event)
         })
       } else {
         console.log('user existing')
+        var error = new Error('Cannot register users ')
+        callback(error, event)
       }
     })
     .catch((err) => {
       console.log(err)
+      var error = new Error('Cannot register users ')
+      callback(error, event)
     })
 }
