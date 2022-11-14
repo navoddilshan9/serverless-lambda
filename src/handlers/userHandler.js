@@ -12,8 +12,7 @@ module.exports.create = async (event, context, callback) => {
 
 const saveUser = async (userAttributes) => {
   console.log(userAttributes['email'])
-  console.log(typeof userAttributes.email)
-  await User.findById({
+  await User.find({
     email: userAttributes.email,
   })
     .then(async (currentUser) => {
