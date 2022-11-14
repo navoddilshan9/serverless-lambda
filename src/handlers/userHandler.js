@@ -18,6 +18,17 @@ const saveUser = async (userAttributes) => {
     .then(async (currentUser) => {
       console.log('currentUser')
       console.log(currentUser)
+
+      if (!currentUser) {
+        const user = new User({
+          firstName: userAttributes['custom:firstName'],
+          lastName: userAttributes['custom:lastName'],
+          email: userAttributes.email,
+        })
+        user.save().then((nuser) => {
+          console.log(nuser)
+        })
+      }
     })
     .catch((err) => {
       console.log(err)
