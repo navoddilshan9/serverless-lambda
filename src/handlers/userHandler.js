@@ -4,6 +4,7 @@ var User = require('../collections/user')
 
 module.exports.create = async (event) => {
   await connectDB()
+  console.log(event)
   let body = {
     statusCode: 400,
     body: JSON.stringify(
@@ -38,7 +39,7 @@ module.exports.create = async (event) => {
         statusCode: 400,
         body: JSON.stringify(
           {
-            message: 'user cannot register!',
+            message: 'ser cannot register!',
             error: err,
           },
           null,
