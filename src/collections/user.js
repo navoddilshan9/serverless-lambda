@@ -10,6 +10,9 @@ const user = new mongoose.Schema({
   email: {
     type: 'string',
   },
+  userName: {
+    type: 'string',
+  },
 })
 
 module.exports = User = mongoose.model('users', user)

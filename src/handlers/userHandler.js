@@ -4,22 +4,17 @@ var User = require('../collections/user')
 
 module.exports.create = async (event) => {
   await connectDB()
-  console.log(event)
   let body = {
     statusCode: 400,
     body: JSON.stringify(
       {
-        message: 'Blog cannot deleted!',
+        message: 'user cannot deleted!',
       },
       null,
       2
     ),
   }
-  const user = new User({
-    firstName: event.firstName,
-    lastName: event.lastName,
-    email: event.email,
-  })
+  const user = new User(event)
   user
     .save()
     .then((nuser) => {
@@ -39,7 +34,7 @@ module.exports.create = async (event) => {
         statusCode: 400,
         body: JSON.stringify(
           {
-            message: 'ser cannot register!',
+            message: 'user cannot register!',
             error: err,
           },
           null,
