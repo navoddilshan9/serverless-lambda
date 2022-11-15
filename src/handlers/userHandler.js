@@ -4,37 +4,40 @@ var User = require('../collections/user')
 
 module.exports.create = async (event) => {
   await connectDB()
+  console.log('body')
+  console.log(event)
   let body = {
     statusCode: 400,
     body: JSON.stringify(
       {
-        message: 'user cannot deleted!',
+        message: 'User cannot register',
       },
       null,
       2
     ),
   }
+
   const user = new User(event)
-  user
+  await user
     .save()
-    .then((nuser) => {
+    .then((user) => {
       body = {
         statusCode: 200,
         body: JSON.stringify(
           {
-            message: nuser,
+            message: user,
           },
           null,
           2
         ),
       }
     })
-    .catch(() => {
+    .catch((err) => {
       body = {
         statusCode: 400,
         body: JSON.stringify(
           {
-            message: 'user cannot register!',
+            message: 'Blog cannot register',
             error: err,
           },
           null,
@@ -42,5 +45,6 @@ module.exports.create = async (event) => {
         ),
       }
     })
+
   return body
 }
