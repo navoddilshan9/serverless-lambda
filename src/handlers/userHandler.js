@@ -10,7 +10,7 @@ module.exports.create = async (event) => {
     statusCode: 400,
     body: JSON.stringify(
       {
-        message: 'User cannot register',
+        message: 'User cannot register!',
       },
       null,
       2
@@ -37,7 +37,7 @@ module.exports.create = async (event) => {
         statusCode: 400,
         body: JSON.stringify(
           {
-            message: 'Blog cannot register',
+            message: 'Blog cannot register!',
             error: err,
           },
           null,
