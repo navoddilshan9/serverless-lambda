@@ -11,7 +11,7 @@ const user = new mongoose.Schema(
     email: {
       type: 'string',
     },
-    clientId: {
+    username: {
       type: 'string',
     },
   },
