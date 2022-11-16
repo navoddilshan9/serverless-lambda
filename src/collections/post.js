@@ -14,10 +14,10 @@ const post = new mongoose.Schema(
     tags: {
       type: 'string',
     },
-    // writer: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: 'users',
-    // },
+    writer: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'users',
+    },
   },
   { timestamps: true }
 )
