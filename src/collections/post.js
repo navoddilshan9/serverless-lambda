@@ -15,8 +15,7 @@ const post = new mongoose.Schema(
       type: 'string',
     },
     writer: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'users',
+      type: 'string',
     },
   },
   { timestamps: true }
