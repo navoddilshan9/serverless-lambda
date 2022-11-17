@@ -1,8 +1,8 @@
 <h3>Simple blog publication app</h3>
 
--> simple-blog-app
--> serverless-lambda
--> aws-s3-bucket repositories are under the simple blog publication project.
+-> simple-blog-app </br>
+-> serverless-lambda </br>
+-> aws-s3-bucket repositories are under the simple blog publication project. 
 
 So in this project, mainly focus about the usage of AWS services. I used, 
 
